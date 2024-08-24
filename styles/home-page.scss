@@ -1,0 +1,256 @@
+.home-page-container {
+  min-width: 500px;
+  min-height: 500px;
+  .welcome-card {
+    background-image: linear-gradient(90deg, #f9f1ea 70%, #ffffff 30%);
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      margin-left: 80px;
+      padding: 80px 0;
+      h2 {
+        font-size: 60px;
+        font-family: URWGeometric, sans-serif;
+        line-height: 1;
+        letter-spacing: 0;
+        margin: 0 0 37px;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 32px;
+      }
+    }
+    .right-col {
+      padding: 80px 0;
+    }
+  }
+
+  .two-cards-detail {
+    margin: 80px 0;
+    h2 {
+      color: var(--primary-color-text);
+      font-size: 42px;
+      font-family: URWGeometric, sans-serif;
+      line-height: 1;
+      letter-spacing: 0;
+      margin: 0 0 24px;
+      font-size: 600;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 16px;
+      font-family: URWGeometric, sans-serif;
+      line-height: 22px;
+      font-weight: 300;
+    }
+
+    .comparison-card {
+      border-top: 1px solid black;
+      border-bottom: 2px solid black;
+      padding: 10px 0;
+
+      background-image: linear-gradient(#ffffff 32%, #fdf8f0 0);
+
+      h3 {
+        font-size: 20px;
+        font-family: URWGeometric, sans-serif;
+        line-height: 1;
+        letter-spacing: 0;
+        margin: 10px 0 30px 0;
+      }
+
+      .address {
+        font-size: 16px;
+        font-family: URWGeometric, sans-serif;
+        line-height: 26px;
+        overflow: scroll;
+      }
+      .address :hover {
+        color: #000;
+      }
+    }
+    .image-with-detail {
+      .image-with-detail-col {
+        .image {
+          width: 100% !important;
+        }
+      }
+      h2 {
+        font-size: 20px;
+        font-family: URWGeometric, sans-serif;
+        line-height: 26px;
+        margin: 16px 0;
+        min-height: 78px;
+        padding: 0 20px;
+      }
+      p {
+        font-size: 18px;
+        font-family: URWGeometric, sans-serif;
+        line-height: 26px;
+        margin-bottom: 16px;
+        padding: 0 20px;
+      }
+      .visit-scheme {
+        .visit-cta {
+          font-size: 18px;
+          font-family: URWGeometric, sans-serif;
+          font-weight: 600;
+          border-bottom: 3px solid #ff0f00;
+          padding-bottom: 5px;
+          margin: 0 20px;
+
+          cursor: pointer;
+        }
+      }
+    }
+    .visit-scheme :hover {
+      color: black;
+    }
+
+    .para {
+      margin: 50px 0;
+      font-size: 16px;
+      font-family: URWGeometric, sans-serif;
+    }
+  }
+
+  .diageo-pension-plan {
+    padding: 80px 0;
+    h2 {
+      color: var(--primary-color-text);
+      font-size: 65px;
+      font-family: URWGeometric, sans-serif;
+      line-height: 1;
+      letter-spacing: 0;
+      margin: 0 0 37px;
+      font-weight: 600 !important;
+      i {
+        font-weight: 500 !important;
+      }
+    }
+    p {
+      font-size: 18px;
+      line-height: 25px;
+      font-weight: 400;
+      color: #000;
+    }
+    .image {
+      width: 100% !important;
+    }
+    .visit-scheme {
+      margin-top: 40px;
+      .visit-cta {
+        font-size: 18px;
+        font-family: URWGeometric, sans-serif;
+        font-weight: 600;
+        border-bottom: 3px solid #ff0f00;
+        padding-bottom: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .blue-background-card {
+    background-color: #f5fbff;
+  }
+}
+
+
+@media screen and (max-width: 605px) {
+  .home-page-container {
+    .welcome-card {
+      background-image: none !important;
+      background-color: #faf7ed !important;
+      .left-col {
+        margin-left: 0px !important;
+        padding: 40px 0;
+
+        h2 {
+          font-size: 38px !important;
+          font-weight: 500;
+        }
+      }
+      .right-col {
+        padding: 10px 0 40px 0 !important;
+        .welcome-image {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .two-cards-detail {
+      .image-with-detail {
+        justify-content: center !important;
+        .image-with-detail-col {
+          margin: 20px 0;
+          .image {
+            width: 100%;
+            height: auto;
+          }
+          h2 {
+            margin-bottom: 10px;
+            min-height: 10px;
+          }
+          p {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+    .diageo-pension-plan {
+      .image {
+        width: 100% !important;
+        height: auto !important;
+        padding: 20px 0 !important;
+      }
+      h2 {
+        font-size: 42px !important;
+      }
+      .visit-scheme {
+        .visit-cta {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 500px;
+  width: 100%;
+}
+
+.welcome-card, .two-cards-detail, .diageo-container, .blue-background-card {
+  width: 100%;
+  min-height: 5px; // Ensure consistent min-height
+  box-sizing: border-box; // Include padding and border in element's total width and height
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 500px; // Use fixed height for images
+  overflow: hidden; // Hide overflowing content
+}
+
+h2, p {
+  margin: 0; // Remove default margin
+}
+
+.visit-cta {
+  cursor: pointer;
+}
+
+.visit-scheme {
+  margin-top: 20px; // Add spacing to avoid layout shifts on hover
+}

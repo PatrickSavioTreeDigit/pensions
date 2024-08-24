@@ -1,0 +1,91 @@
+// html,
+// body {
+//   padding: 0;
+//   margin: 0;
+// }
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p {
+//   padding: 0;
+//   margin: 0;
+// }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.brand-section {
+  img {
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .first-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 10px 40px 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  .second-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 40px 10px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .brand-section {
+    .first-row,
+    .second-row {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .first-row img,
+    .second-row img {
+      width: calc(33.33% - 10px);
+      margin-bottom: 10px;
+    }
+
+    .first-row {
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}

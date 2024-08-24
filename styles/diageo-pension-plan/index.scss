@@ -1,0 +1,500 @@
+.diageo-pension-plan-container {
+  .pink-shade-background {
+    background-image: linear-gradient(to top right, #f5e9f9 30%, #fff);
+    padding: 60px 0 60px 0;
+
+    span {
+      font-size: 15px;
+      padding: 0 4px;
+    }
+    .heading {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      h2 {
+        font-size: 65px;
+        font-weight: 600 !important;
+        line-height: 75px;
+        max-width: 650px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        font-family: URWGeometric, sans-serif;
+        line-height: 25px;
+        max-width: 400px;
+        color: #000000b6;
+      }
+    }
+    h3 {
+      color: var(--primary-color-text);
+      font-size: 26px;
+      font-family: URWGeometric, sans-serif;
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 50px;
+    }
+    .different-links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:hover {
+        border-bottom: 2px solid black;
+      }
+
+      span {
+        font-size: 16px;
+        line-height: 30px;
+        text-decoration: none;
+        font-weight: 400;
+        margin: 10px 0;
+        cursor: pointer;
+        // &:hover {
+        //   border-bottom: 2px solid black;
+        // }
+      }
+    }
+  }
+  .pensionscheme-container {
+    .box1 {
+      box-sizing: border-box;
+      background-color: bisque;
+      height: 15rem;
+    }
+    .export1 {
+      font-size: 2rem;
+      padding-left: 9rem;
+    }
+    @media only screen and (max-width: 600px) {
+      .p3 {
+        width: 400px;
+      }
+    }
+
+    .download-document {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 2rem;
+      padding-left: 2rem;
+      .download-document-icon {
+        font-size: 30px;
+      }
+
+      .download-document-span {
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 600;
+        color: #000;
+        border-bottom: 3px solid #ff0f00;
+        cursor: pointer;
+        padding-bottom: 4px;
+      }
+    }
+  }
+  .download-document-span :hover {
+    color: black;
+  }
+
+  .visitlink {
+    border-bottom: 3px solid #ff0f00;
+    padding-top: 1.5rem;
+    font-size: 1.1rem;
+    // font-family: Arial, Helvetica, sans-serif;
+    padding-left: 2rem;
+    // line-height: 1.5rem;
+    font-weight: 600;
+    width: 110px;
+  }
+  .iconimport {
+    display: flex;
+  }
+
+  // .import{
+  //   font-size: 1.7rem;
+  //   padding-left: 1rem;
+  //   padding-top: 0.2rem;
+  // }
+  // .import1{
+  //   font-size: 1.3rem;
+  //   padding-left: 2rem;
+  //   margin-top: 1rem;
+  // }
+  @media only screen and (max-width: 600px) {
+    .box1 {
+      width: 30rem;
+    }
+  }
+
+  .p1 {
+    padding-left: 2rem;
+    padding-top: 3rem;
+    font-size: 1rem;
+    font-family: URWGeometric, sans-serif;
+    // font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .h1 {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 3rem;
+    font-family: URWGeometric, sans-serif;
+    // font-family: Arial, Helvetica, sans-serif;
+  }
+  @media only screen and (max-width: 900px) {
+    .h1 {
+      margin-right: 1rem;
+    }
+  }
+
+  .p2 {
+    padding-top: 5rem;
+    font-size: 18px;
+    font-family: URWGeometric, sans-serif;
+    font-weight: 400;
+    /* padding-left: 200px; */
+    padding-left: 17rem;
+    line-height: 2rem;
+  }
+  @media only screen and (max-width: 1200px) {
+    .p2 {
+      padding-left: 1rem;
+    }
+  }
+  .u1 {
+    padding-left: 19rem;
+    line-height: 2rem;
+  }
+  @media only screen and (max-width: 1200px) {
+    .u1 {
+      padding-left: 2rem;
+    }
+  }
+  .l1 {
+    padding-top: 0.5rem;
+    font-size: 15px;
+    // font-family: Arial, Helvetica, sans-serif;
+  }
+  .l2 {
+    padding-top: 5px;
+    font-size: 15px;
+    // font-family: Arial, Helvetica, sans-serif;
+  }
+  .l3 {
+    padding-top: 5px;
+    font-size: 15px;
+    // font-family: Arial, Helvetica, sans-serif;
+  }
+  .l4 {
+    padding-top: 5px;
+    font-size: 15px;
+    // font-family: Arial, Helvetica, sans-serif;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .flex > div {
+    /* margin:auto; */
+    padding-top: 5rem;
+  }
+
+  /* .flex {
+    -ms-flex: 25%; /* IE10 */
+  /* flex: 100%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+    */
+  /* .flex img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  } */
+
+  /* .flex1{
+    display: flex;
+ 
+}
+.flex1 > div{
+    margin: auto;
+   
+} */
+  .cs0 {
+    padding-left: 2rem;
+  }
+  .h2 {
+    padding-top: 1rem;
+    font-size: 20px;
+    // font-family: Arial, Helvetica, sans-serif;
+    padding-left: 2rem;
+    line-height: 1.5rem;
+  }
+
+  .p3 {
+    padding-top: 1rem;
+    font-size: 1.1rem;
+    // font-family: Arial, Helvetica, sans-serif;
+    padding-left: 2rem;
+    line-height: 1.5rem;
+  }
+  .p4 {
+    padding-top: 1.5rem;
+    font-size: 1.1rem;
+    // font-family: Arial, Helvetica, sans-serif;
+    padding-left: 2rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    text-decoration: underline solid red 15%;
+    // text-decoration-color: red;
+    // border-bottom: 2px solid #ff0f00;
+    // width: 100px;
+    // cursor: pointer;
+  }
+  .p4 :hover {
+    color: black;
+  }
+  .cs1 {
+    padding-left: 2rem;
+  }
+  .h3 {
+    padding-top: 1rem;
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 4rem;
+  }
+  .p5 {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 4rem;
+  }
+  .p6 {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 4rem;
+  }
+
+  .cs2 {
+    padding-left: 2rem;
+  }
+  .h4 {
+    padding-top: 1rem;
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 4rem;
+  }
+
+  .p7 {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 4rem;
+  }
+  .p8 {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 4rem;
+  }
+  .cs3 {
+    padding-left: 2rem;
+  }
+  .h5 {
+    padding-top: 1rem;
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5rem;
+  }
+  .p9 {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5rem;
+  }
+  .p10 {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    .column1 {
+      flex: 100%;
+      max-width: 100%;
+      padding-left: 5rem;
+      width: 90rem;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .column2 {
+      flex: 100%;
+      max-width: 100%;
+      padding-left: 5rem;
+      padding-top: 3rem;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .column3 {
+      flex: 100%;
+      max-width: 100%;
+      padding-left: 4rem;
+      padding-top: 3rem;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .column4 {
+      flex: 100%;
+      max-width: 100%;
+      padding-left: 3rem;
+      padding-top: 3rem;
+    }
+  }
+  .download-document {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    //  padding-top: 2rem;
+    //  padding-left: 2rem;
+    padding-bottom: 2rem;
+    .download-document-icon {
+      font-size: 30px;
+    }
+
+    .download-document-span {
+      font-size: 18px;
+      line-height: 25px;
+      font-weight: 600;
+      color: #000;
+      border-bottom: 3px solid #ff0f00;
+      cursor: pointer;
+      padding-bottom: 4px;
+    }
+  }
+
+  .imagedpp {
+    height: 70%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 4rem;
+  }
+
+  .announcement-section {
+    margin: 60px 0;
+    h2 {
+      color: var(--primary-color-text);
+      font-size: 42px;
+      font-family: URWGeometric, sans-serif;
+      line-height: 1;
+      letter-spacing: 0;
+      margin: 0 0 24px;
+      font-weight: 600;
+    }
+    .visit-scheme {
+      margin-bottom: 60px;
+      .visit-cta {
+        font-size: 18px;
+        line-height: 28px;
+        font-family: URWGeometric, sans-serif;
+        font-weight: 500;
+        border-bottom: 3px solid #ff0f00;
+        padding-bottom: 5px;
+        cursor: pointer;
+      }
+    }
+    .visit-scheme1 {
+      margin-bottom: 60px;
+      font-size: 19px;
+      // line-height: 28px;
+      font-family: URWGeometric, sans-serif;
+      font-weight: 600;
+      border-bottom: 3px solid #ff0f00;
+      padding-bottom: 3px;
+      width: 650px;
+    }
+    .visit-scheme1 :hover {
+      color: #000;
+    }
+    .component {
+      font-size: 2rem;
+    }
+    p,
+    ul li {
+      font-size: 18px;
+      line-height: 25px;
+      font-weight: 400;
+      color: #000;
+      margin: 10px 0;
+    }
+  }
+
+  .hyperlink-section {
+    margin: 80px 0;
+  }
+
+  .hyperlink-section p {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 300;
+  }
+
+  .hyperlink-section p span {
+    text-decoration: underline;
+    font-weight: 600;
+    word-wrap: break-word;
+    color: #000;
+  }
+
+  .hyperlink-section .different-links span {
+    color: black; /* Set the color to black for links */
+  }
+
+  @media screen and (max-width: 605px) {
+    .diageo-pension-plan-container .pink-shade-background .heading h2 {
+      font-size: 42px !important;
+      line-height: 52px !important;
+    }
+
+    .diageo-pension-plan-container .pink-shade-background .heading .image {
+      width: 100%;
+      height: auto;
+    }
+
+    .diageo-pension-plan-container .announcement-section h2 {
+      font-size: 33px;
+      line-height: 40px;
+      margin: 0 0 19px;
+    }
+
+    .diageo-pension-plan-container .hyperlink-section p {
+      font-size: 24px;
+      line-height: 29px;
+    }
+    .diageo-pension-plan-container .hyperlink-section .different-links span {
+      color: black; /* Set the color to black for links in smaller screens */
+    }
+  }
+}
+// #AnnualReviews
+
+.black :hover {
+  color: black;
+}
+//#How dd plan Works
+.black1 :hover {
+  color: #000;
+}
+
+@media screen and (max-width: 605px) {
+  .download-document-span {
+    max-width: 320px;
+    overflow: scroll;
+  }
+}
