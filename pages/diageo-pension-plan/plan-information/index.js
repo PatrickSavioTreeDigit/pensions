@@ -1,14 +1,23 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {createClient} from "contentful"
-
-export default function Planinformation({planContent}) {
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+export default function Planinformation({planContent,preFooterContent,prefooterDescriptionContent,headerContent}) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-
-    <div className='plan-information-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='plan-information-container'>
       <div className='first-component'>
         <div className='diageo-container'>
           <span
@@ -68,7 +77,10 @@ export default function Planinformation({planContent}) {
         </div>
       </div>
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

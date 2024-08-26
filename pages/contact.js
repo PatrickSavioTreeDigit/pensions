@@ -1,12 +1,23 @@
 import { Col, Row } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createClient } from "contentful"
 import Brand from "../components/Brands/Brand.js"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
-const contact1 = ({ contactContent }) => {
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+export default function contact1({contactContent,preFooterContent,prefooterDescriptionContent,headerContent}) {
+// const contact1 = ({ contactContent }) => {
+    const [show,setshow] = useState(false)
+    useEffect(()=>{
+      setTimeout(()=>{
+        setshow(true)
+      },0)
+      
+    },[])
     return (
-        <div className='contact1-container'>
+        <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='contact1-container'>
             <div className='pink-shade-background'>
                 <div className='diageo-container'>
                     <p>{contactContent.text}</p>
@@ -87,11 +98,14 @@ const contact1 = ({ contactContent }) => {
                 </div>
             </div>
             <Brand />
-        </div>
+        </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
     )
 }
 
-export default contact1
+
 
 export async function getStaticProps() {
     const client = createClient({

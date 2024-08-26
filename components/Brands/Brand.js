@@ -17,6 +17,7 @@ import Brand13 from '../../public/Assets/Images/homepage/Brand13.svg'
  
 export  default function App( props){
     return (
+       
         (props.content) && <div>
             <div className='diageo-container'>
  
@@ -46,6 +47,8 @@ export  default function App( props){
                 </div>
             </div>
         </div>
+      
                 )
+            
 }
  

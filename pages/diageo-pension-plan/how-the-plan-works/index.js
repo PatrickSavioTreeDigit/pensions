@@ -1,17 +1,29 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import VideoScreenShot from '../../../public/Assets/Images/videoScreenShot.png'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { ImportOutlined, ArrowRightOutlined } from '@ant-design/icons'
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 import { createClient } from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-export default function Index({ planContent, planlinks, planhead }) {
+import Link from 'next/link'
+export default function Index({ planContent, planlinks, planhead,preFooterContent,prefooterDescriptionContent,headerContent }) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='plan-information-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='plan-information-container'>
       <div className='first-component'>
         <div className='diageo-container'>
           <span
@@ -67,15 +79,15 @@ export default function Index({ planContent, planlinks, planhead }) {
             </Col>
             <Col xl={1} lg={1} md={1} sm={0} xs={0}></Col>
             <Col xl={14} lg={14} md={14} sm={24} xs={24}>
-              <Image src={VideoScreenShot} className='mb-50 temp-img' />
+              <Image alt='Image' src={VideoScreenShot} className='mb-50 temp-img' />
               <p>
                 {planContent.description}
               </p>
               <div className='download-document'>
                 <span className='download-document-span'>
-                     <a target='_blank' href='https://www.scottishwidows.co.uk/save/dpp.html'>
+                     <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://www.scottishwidows.co.uk/save/dpp.html'>
                   {documentToReactComponents(planContent.richText)}
-                   </a>
+                   </Link>
                 </span>
                 <ImportOutlined className='download-document-icon' />
 
@@ -87,7 +99,10 @@ export default function Index({ planContent, planlinks, planhead }) {
         </div>
       </div>
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

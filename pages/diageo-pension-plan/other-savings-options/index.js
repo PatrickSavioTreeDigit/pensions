@@ -1,14 +1,24 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {createClient} from "contentful"
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-export default function Savings({savingContent}) {
+export default function Savings({savingContent,preFooterContent,prefooterDescriptionContent,headerContent}) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
- 
-    <div className='other-saving-options-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='other-saving-options-container'>
       <div className='yellow-color-container'>
         <div className='diageo-container'>
           <span
@@ -56,7 +66,10 @@ export default function Savings({savingContent}) {
         </div>
       </div>
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
  

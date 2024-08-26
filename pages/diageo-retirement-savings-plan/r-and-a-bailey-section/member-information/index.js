@@ -1,15 +1,26 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DownloadOutlined } from '@ant-design/icons'
 import { createClient } from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
-export default function Index({ memeberContent, memberlinks, memberHead }) {
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Link from 'next/link'
+export default function Index({ memeberContent, memberlinks, memberHead,preFooterContent,prefooterDescriptionContent,headerContent }) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='diageo-retirement-savings-plan-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='diageo-retirement-savings-plan-container'>
       <div className='blue-color-container'>
         <div className='diageo-container'>
           <span
@@ -109,9 +120,9 @@ export default function Index({ memeberContent, memberlinks, memberHead }) {
                     <div className='download-document'>
                       <DownloadOutlined className='download-document-icon' />
                       <span className='download-document-span1'>
-                      <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/svqai1yd/rab-section-of-drsp-member-booklet-2019-final_3.pdf'>
+                      <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/svqai1yd/rab-section-of-drsp-member-booklet-2019-final_3.pdf'>
                         {documentToReactComponents(memeberContent.richText1)}
-                        </a>
+                        </Link>
                       </span>
                     </div>
                   </div>
@@ -123,9 +134,9 @@ export default function Index({ memeberContent, memberlinks, memberHead }) {
                     <div className='download-document'>
                       <DownloadOutlined className='download-document-icon' />
                       <span className='download-document-span1'>
-                      <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/nqoko0x1/rab_section_of_drsp_investment_guide_2019_final_4.pdf'>
+                      <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/nqoko0x1/rab_section_of_drsp_investment_guide_2019_final_4.pdf'>
                         {documentToReactComponents(memeberContent.richText3)}
-                        </a>
+                        </Link>
                       </span>
                     </div>
                   </div>
@@ -137,7 +148,10 @@ export default function Index({ memeberContent, memberlinks, memberHead }) {
       </div>
 
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

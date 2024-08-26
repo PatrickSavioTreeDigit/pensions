@@ -1,16 +1,29 @@
 import { Row, Col, Image, Breadcrumb } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ArrowRightOutlined } from '@ant-design/icons'
 import Brand from '@/components/Brands/Brand'
 import {createClient} from "contentful"
+import Header from '@/components/layout/Header';
+
+import Footer from '@/components/layout/Footer';
 import { useRouter } from 'next/router'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from "next/link"
  
-export default function Home({retirementContent,retirementLinks,retirementHome}) {
+export default function Home({retirementContent,retirementLinks,retirementHome,preFooterContent,prefooterDescriptionContent,headerContent}) {
+ 
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='saving-plan-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='saving-plan-container'>
       <section
         className='container'
         style={{
@@ -44,7 +57,7 @@ export default function Home({retirementContent,retirementLinks,retirementHome})
               </Col>
  
               <Col xs={24} sm={24} md={10} className='img1'>
-              <Image loader={()=>'https:' + retirementHome.image.fields.file.url}
+              <Image alt='Image' loader={()=>'https:' + retirementHome.image.fields.file.url}
               src={'https:' + retirementHome.image.fields.file.url}
               preview={false}/>
                 {/* <Image
@@ -677,7 +690,10 @@ export default function Home({retirementContent,retirementLinks,retirementHome})
       </section>
  
       <Brand />
-    </div>
+    </div>}<br/>
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
  

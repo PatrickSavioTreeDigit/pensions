@@ -1,16 +1,26 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DownloadOutlined } from '@ant-design/icons'
 import { createClient } from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link'
-
-export default function Form({ formContent, footerContent }) {
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+export default function Form({ formContent, footerContent,preFooterContent,prefooterDescriptionContent,headerContent }) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='plan-information-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='plan-information-container'>
       <div className='first-component'>
         <div className='diageo-container'>
           <span
@@ -72,9 +82,9 @@ export default function Form({ formContent, footerContent }) {
               </p>
               <div className='download-document'>
                 <DownloadOutlined className='download-document-icon' />
-                <a target='_blank' href="https://media-diageo.diageoplatform.com/diageo-corporate-media/media/wl3h32f2/excepted-life-policy-nomination-of-beneficiary-gdpr-v2.pdf"><span className='download-document-span'>
+                <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href="https://media-diageo.diageoplatform.com/diageo-corporate-media/media/wl3h32f2/excepted-life-policy-nomination-of-beneficiary-gdpr-v2.pdf"><span className='download-document-span'>
                   {formContent.text6}
-                </span></a>
+                </span></Link>
               </div>
 
               <p>
@@ -83,16 +93,19 @@ export default function Form({ formContent, footerContent }) {
 
               <div className='download-document'>
                 <DownloadOutlined className='download-document-icon' />
-                <a target='_blank' href="https://www.scottishwidows.co.uk/save/dpp.html"><span className='download-document-span'>
+                <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href="https://www.scottishwidows.co.uk/save/dpp.html"><span className='download-document-span'>
                   {formContent.text7}
-                </span></a>
+                </span></Link>
               </div>
             </Col>
           </Row>
         </div>
       </div>
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

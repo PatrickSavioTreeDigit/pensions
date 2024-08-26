@@ -1,15 +1,26 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { DownloadOutlined } from '@ant-design/icons'
 import Link from 'next/link'
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import { createClient } from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-export default function Ireland({ schemeContent, schemelinks }) {
+export default function Ireland({ schemeContent, schemelinks,preFooterContent,prefooterDescriptionContent,headerContent }) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='diageo-retirement-savings-plan-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='diageo-retirement-savings-plan-container'>
       <div className='blue-color-container'>
         <div className='diageo-container'>
           <span
@@ -105,18 +116,18 @@ export default function Ireland({ schemeContent, schemelinks }) {
 
               <div className='download-document'>
                 <DownloadOutlined className='download-document-icon' />
-                <a target='_blank' href="https://media-diageo.diageoplatform.com/diageo-corporate-media/media/zwqlkmyc/consolidated-tdr-with-appendix-di.pdf"><span className='download-document-span'>
+                <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href="https://media-diageo.diageoplatform.com/diageo-corporate-media/media/zwqlkmyc/consolidated-tdr-with-appendix-di.pdf"><span className='download-document-span'>
                   {schemeContent.pdf}
-                </span></a>
+                </span></Link>
               </div>
 
               <h2>{schemeContent.header1}</h2>
 
               <div className='download-document'>
                 <DownloadOutlined className='download-document-icon' />
-                <a target='_blank' href="https://media-diageo.diageoplatform.com/diageo-corporate-media/media/t3qa1lga/dirss-sipp-may18.pdf"><span className='download-document-span'>
+                <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href="https://media-diageo.diageoplatform.com/diageo-corporate-media/media/t3qa1lga/dirss-sipp-may18.pdf"><span className='download-document-span'>
                   {schemeContent.pdf1}
-                </span></a>
+                </span></Link>
               </div>
 
               <h2>{schemeContent.header2}</h2>
@@ -133,7 +144,10 @@ export default function Ireland({ schemeContent, schemelinks }) {
       </div>
 
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

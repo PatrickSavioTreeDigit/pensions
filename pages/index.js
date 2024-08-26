@@ -1,7 +1,8 @@
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRightOutlined } from '@ant-design/icons';
+
+import {ImportOutlined , ArrowRightOutlined  } from '@ant-design/icons'
 import Brand from '@/components/Brands/Brand';
 import { useRouter } from 'next/router';
 import { createClient } from 'contentful';
@@ -13,7 +14,7 @@ import { useEffect, useState } from 'react';
 
 const imageLoader = ({ src, width, quality }) => `${src}?w=${width}&q=${quality || 75}`;
 
-export default function App({ homeContent, homesecond, homefourth, homefifth, headerContent, preFooterContent,prefooterDescriptionContent }) {
+export default function App({ homeContent, homesecond, homethird,homefourth, homefifth, headerContent, preFooterContent,prefooterDescriptionContent }) {
   const router = useRouter();
   const [show,setshow] = useState(false)
   useEffect(()=>{
@@ -75,7 +76,35 @@ export default function App({ homeContent, homesecond, homefourth, homefifth, he
                 <p className='para'>{homesecond.text1}</p>
                 <Row justify='space-between' className='image-with-detail'>
                   <Col xl={11} lg={11} md={22} sm={22} xs={22} className='image-with-detail-col'>
-                    <div className='image-container'>
+                    <div className='image-container1'>
+                      <Image
+                        alt="image"
+                        loader={imageLoader}
+                        src={'https:' + homesecond.image.fields.file.url}
+                        layout='fill'
+                        objectFit='cover'
+                        priority
+                      />
+                    </div>
+                    <h2>{homesecond.text2}</h2>
+                    <p>{homesecond.text3}</p>
+                    <div className='download-document1'>
+                       <span className='download-document-span1'>
+                        <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html'>
+                {documentToReactComponents(homesecond.richText10)}
+                </Link>
+                </span>
+                <ImportOutlined className='download-document-icon1' />
+               
+                </div>
+                    {/* <div className='visit-scheme'>
+                      <Link aria-label="Read more about scheme of diageo pensions" href="https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html" passHref>
+                      {documentToReactComponents(homesecond.richText3)}
+                      </Link>
+                    </div> */}
+                  </Col>
+                  <Col xl={11} lg={11} md={22} sm={22} xs={22} className='image-with-detail-col'>
+                    <div className='image-container1'>
                       <Image
                         alt="image"
                         loader={imageLoader}
@@ -85,34 +114,112 @@ export default function App({ homeContent, homesecond, homefourth, homefifth, he
                         priority
                       />
                     </div>
-                    <h2>{homesecond.text2}</h2>
-                    <p>{homesecond.text3}</p>
-                    <div className='visit-scheme'>
+                    <h2>{homesecond.text4}</h2>
+                    <p>{homesecond.text5}</p>
+                    {/* <div className='download-document1'>
+                    <span className='download-document-span1'>
+                    <a aria-label="Read more about scheme of diageo pensions"  href='https://portal.hartlinkonline.co.uk/diageo/hopl.chi/wui/tilepgui.html'>
+                    <p>{homesecond.link1}</p>
+                    </a>
+                    </span>
+                    <ImportOutlined className='download-document-icon1' />
+                    </div> */}
+                    {/* <div className='download-document1'>
+                      <span className='download-document-span1'>
                       <Link aria-label="Read more about scheme of diageo pensions" href="https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html" passHref>
-                       
+                      {documentToReactComponents(homesecond.richText10)}     
                       </Link>
+                  
                     </div>
+                    </span> */}
+                    <div className='download-document1'>
+            <span className='download-document-span1'>
+            <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html'>
+                {documentToReactComponents(homesecond.richText10)}
+                </Link>
+                </span>
+                <ImportOutlined className='download-document-icon1' />
+               
+                </div>
                   </Col>
+                </Row>
+                
+              </Col>
+            </Row>
+            <Row>
+              <Col xl={12} lg={12} md={12} sm={24} xs={24}> 
+                <h2>{homethird.text}</h2>
+                <p>{homethird.description}</p>
+                <Row justify='space-around' className='comparison-card'>
+                  <Col span={11}>
+                    <h3>{homesecond.header}</h3>
+                    <div className='address'>{documentToReactComponents(homethird.richText)}</div>
+                  </Col>
+                  <Col span={11}>
+                    <h3>{homesecond.header1}</h3>
+                    <div className='address'>{documentToReactComponents(homethird.richText2)}</div>
+                  </Col>
+                </Row>
+                <p className='para'>{homesecond.text1}</p>
+                <Row justify='space-between' className='image-with-detail'>
                   <Col xl={11} lg={11} md={22} sm={22} xs={22} className='image-with-detail-col'>
-                    <div className='image-container'>
+                    <div className='image-container1'>
                       <Image
                         alt="image"
                         loader={imageLoader}
-                        src={'https:' + homesecond.image1?.fields.file.url}
+                        src={'https:' + homethird.image.fields.file.url}
                         layout='fill'
                         objectFit='cover'
                         priority
                       />
                     </div>
-                    <h2>{homesecond.text5}</h2>
-                    <p>{homesecond.text6}</p>
-                    <div className='visit-scheme'>
-                      <Link aria-label="Read more about scheme of diageo pensions" href="https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html" passHref>
-                        
-                      </Link>
+                    <h2>{homethird.text2}</h2>
+                    <p>{homethird.text3}</p>
+                  
+                    <div className='download-document1'>
+            <span className='download-document-span1'>
+            <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html'>
+                {documentToReactComponents(homesecond.richText10)}
+                </Link>
+                </span>
+                <ImportOutlined className='download-document-icon1' />
+               
+                </div>
+                      {/* <Link aria-label="Read more about scheme of diageo pensions" href="https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html" passHref>
+                      <p>{homesecond.link1}</p>
+                      </Link> */}
+                  
+                  </Col>
+                  <Col xl={11} lg={11} md={22} sm={22} xs={22} className='image-with-detail-col'>
+                    <div className='image-container1'>
+                      <Image
+                        alt="image"
+                        loader={imageLoader}
+                        src={'https:' + homethird.image1.fields.file.url}
+                        layout='fill'
+                        objectFit='cover'
+                        priority
+                      />
                     </div>
+                    <h2>{homethird.text4}</h2>
+                    <p>{homethird.text5}</p>
+                    <div className='download-document1'>
+            <span className='download-document-span1'>
+            <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html'>
+                {documentToReactComponents(homesecond.richText10)}
+                </Link>
+                </span>
+                <ImportOutlined className='download-document-icon1' />
+               
+                </div>
+                    {/* <div className='visit-scheme'>
+                      <Link aria-label="Read more about scheme of diageo pensions" href="https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html" passHref>
+                      {documentToReactComponents(homethird.richText3)}
+                      </Link>
+                    </div> */}
                   </Col>
                 </Row>
+                
               </Col>
             </Row>
           </div>
@@ -197,6 +304,7 @@ export async function getStaticProps() {
   const fourth = await client.getEntries({ content_type: "homeBanner", "fields.text1": "Diageo Pension Plan (DPP)" })
   const fifth = await client.getEntries({ content_type: "homeBanner", "fields.text1": "Diageo Retirement Savings Plan - Homepage" })
   // 'fields.title': "tv"
+ 
   return {
     props: {
       homeContent: res.items[0].fields,
@@ -204,6 +312,7 @@ export async function getStaticProps() {
       homethird: third.items[0].fields,
       homefourth: fourth.items[0].fields,
       homefifth: fifth.items[0].fields,
+
     },
     
   }

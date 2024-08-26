@@ -242,6 +242,12 @@
   height: 500px; // Use fixed height for images
   overflow: hidden; // Hide overflowing content
 }
+.image-container1 {
+  position: relative;
+  width: 100%;
+  height: 150px; // Use fixed height for images
+  overflow: hidden; // Hide overflowing content
+}
 
 h2, p {
   margin: 0; // Remove default margin
@@ -253,4 +259,49 @@ h2, p {
 
 .visit-scheme {
   margin-top: 20px; // Add spacing to avoid layout shifts on hover
+}
+
+.download-document1 {
+  // margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  // gap: 10px;
+
+
+  .download-document-icon1 {
+    font-size: 20px;
+    padding-bottom: 20px;
+  }
+ 
+  .download-document-span1 {
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    color: #000;
+
+    border-bottom: 3px solid #ff0f00;
+  
+    cursor: pointer;
+    
+
+   
+    }
+  }
+
+.download-document-span1 :hover {
+color: black;
+}
+
+.visitlink{
+  border-bottom: 3px solid #ff0f00;
+  padding-top: 1.5rem;
+  font-size: 1.1rem;
+  // font-family: Arial, Helvetica, sans-serif;
+  padding-left: 2rem;
+  // line-height: 1.5rem;
+  font-weight: 600;
+  width: 110px;
+}
+.iconimport{
+  display: flex;
 }

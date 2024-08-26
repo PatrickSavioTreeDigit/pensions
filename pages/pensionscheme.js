@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { Breadcrumb, Layout, Menu, theme } from 'antd'
 import Image from 'next/image'
 import { Col, Divider, Row } from 'antd'
@@ -7,15 +7,27 @@ import img2 from '../public/Assets/Images/img2.webp'
 import img3 from '../public/Assets/Images/img3.webp'
 import img4 from '../public/Assets/Images/img4.webp'
 import Brand from '@/components/Brands/Brand'
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import { useRouter } from 'next/router'
 import {createClient} from "contentful";
 import {ImportOutlined , ArrowRightOutlined  } from '@ant-design/icons'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Link from 'next/link'
  
-export default function App({pensionContent}) {
+export default function App({pensionContent,preFooterContent,prefooterDescriptionContent,headerContent}) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='pensionscheme-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='pensionscheme-container'>
       <div className='box1'>
         <div className='diageo-container'>
           <p className='p1'>{pensionContent.text}</p>
@@ -52,14 +64,14 @@ export default function App({pensionContent}) {
             {/* {documentToReactComponents(pensionContent.richText1)} */}
             {/* {pensionContent.image1} */}
             {/* <div> image={'https:' +pensionContent.image1.fields.file.url}</div> */}
-            <Image loader={()=>'https:' + pensionContent.image1.fields.file.url} src={'https:' + pensionContent.image1.fields.file.url} height={150} width={280} className='cs0' />
+            <Image alt="Image" loader={()=>'https:' + pensionContent.image1.fields.file.url} src={'https:' + pensionContent.image1.fields.file.url} height={150} width={280} className='cs0' />
             <h3 className='h2'>{pensionContent.text1}</h3>
             <p className='p3'>{pensionContent.description1}</p>
             <div className='download-document1'>
             <span className='download-document-span1'>
-            <a target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html'>
+            <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=14b4ev1j9q78g4x9x7yvy83j2fo2bph9&schid=1&srcpg=wui/schinfui.html'>
                 {documentToReactComponents(pensionContent.link1)}
-                </a>
+                </Link>
                 </span>
                 <ImportOutlined className='download-document-icon1' />
                
@@ -80,14 +92,14 @@ export default function App({pensionContent}) {
               <p className='p4'>Visit scheme</p> */}
             </Col>
             <Col span={6} className='column2'>
-            <Image loader={()=>'https:' + pensionContent.image2.fields.file.url} src={'https:' + pensionContent.image1.fields.file.url} height={150} width={280} className='cs1' />
+            <Image alt="Image"loader={()=>'https:' + pensionContent.image2.fields.file.url} src={'https:' + pensionContent.image1.fields.file.url} height={150} width={280} className='cs1' />
             <h3 className='h2'>{pensionContent.text2}</h3>
             <p className='p3'>{pensionContent.description2}</p>
             <div className='download-document1'>
             <span className='download-document-span1'>
-            <a target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=3zvc8b4vi0r5jctgs4osqz382e523swc&schid=2&srcpg=wui/schinfui.html'>
+            <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://www.hartlinkonline.co.uk/diageo/hofl.chi/wui/schsetui.html?hopsess=3zvc8b4vi0r5jctgs4osqz382e523swc&schid=2&srcpg=wui/schinfui.html'>
                 {documentToReactComponents(pensionContent.link1)}
-            </a>
+            </Link>
                 </span>
                 <ImportOutlined className='download-document-icon1' />
                
@@ -114,7 +126,7 @@ export default function App({pensionContent}) {
               <p className='p6'>Visit scheme</p> */}
             </Col>
             <Col span={6} className='column3'>
-            <Image loader={()=>'https:' + pensionContent.image3.fields.file.url} src={'https:' + pensionContent.image3.fields.file.url} height={150} width={280} className='cs1' />
+            <Image alt="Image" loader={()=>'https:' + pensionContent.image3.fields.file.url} src={'https:' + pensionContent.image3.fields.file.url} height={150} width={280} className='cs1' />
             <h3 className='h2'>{pensionContent.text3}</h3>
             <p className='p3'>{pensionContent.description3}</p>
             <div className='download-document1'>
@@ -139,7 +151,7 @@ export default function App({pensionContent}) {
               <p className='p8'>Visit scheme</p> */}
             </Col>
             <Col span={6} className='column4'>
-            <Image loader={()=>'https:' + pensionContent.image4.fields.file.url} src={'https:' + pensionContent.image4.fields.file.url} height={150} width={280} className='cs1' />
+            <Image alt="Image" loader={()=>'https:' + pensionContent.image4.fields.file.url} src={'https:' + pensionContent.image4.fields.file.url} height={150} width={280} className='cs1' />
             <h3 className='h2'>{pensionContent.text4}</h3>
             <p className='p3'>{pensionContent.description4}</p>
             <div className='download-document1'>
@@ -170,9 +182,12 @@ export default function App({pensionContent}) {
           </Row>
         </div>
       </div>
-      <Brand />
-    </div>
-  )
+     
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
+  );
 }
  
 export async function getStaticProps() {

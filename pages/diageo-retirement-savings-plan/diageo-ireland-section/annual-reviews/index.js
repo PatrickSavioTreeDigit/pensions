@@ -1,13 +1,23 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row, Collapse } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
+import Header from '@/components/layout/Header';
 
+import Footer from '@/components/layout/Footer';
 import { createClient } from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-export default function Index({ annualContent, annuallinks, annualyear, annualyear1, annualyear2, annualyear3, annualyear4, annualyear5 }) {
+import Link from 'next/link'
+export default function Index({ annualContent, annuallinks, annualyear, annualyear1, annualyear2, annualyear3, annualyear4, annualyear5,preFooterContent,prefooterDescriptionContent,headerContent }) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
 
   const customExpandIcon = ({ isActive }) => (
     <span>{isActive ? <MinusOutlined /> : <PlusOutlined />}</span>
@@ -21,9 +31,9 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
           <p>
             {annualContent.text1}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/tukjj1dh/drsp-report-to-members-to-30-june-2022.pdf'>
+          <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/tukjj1dh/drsp-report-to-members-to-30-june-2022.pdf'>
           <u className='black'>{documentToReactComponents(annualContent.richText3)}</u>
-          </a>
+          </Link>
         </>
       ),
     },
@@ -35,9 +45,9 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
           <p>
             {annualyear.text1}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/qy0petni/rap-di-a005-diageo-retirement-savings-plan-report-2021_aw_v7_online.pdf'>
+          <Link aria-label="Read more about scheme of diageo pensions"   target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/qy0petni/rap-di-a005-diageo-retirement-savings-plan-report-2021_aw_v7_online.pdf'>
           <u className='black'>{documentToReactComponents(annualyear.richText3)}</u>
-          </a>
+          </Link>
         </>
       ),
     },
@@ -49,9 +59,9 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
           <p>
             {annualyear1.text1}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/ksyi1dz2/146452_diageo_drsp_11_20_v6_online_october_2020.pdf'>
+          <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/ksyi1dz2/146452_diageo_drsp_11_20_v6_online_october_2020.pdf'>
           <u className='black'>{documentToReactComponents(annualyear1.richText3)}</u>
-          </a>
+          </Link>
         </>
       ),
     },
@@ -63,9 +73,9 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
           <p>
             {annualyear2.text1}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/isvpa3gd/142075_diageo_drsp_11_19_v4_screen.pdf'>
+          <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/isvpa3gd/142075_diageo_drsp_11_19_v4_screen.pdf'>
           <u className='black'>{documentToReactComponents(annualyear2.richText3)}</u>
-          </a>
+          </Link>
         </>
       ),
     },
@@ -77,9 +87,9 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
           <p>
             {annualyear3.text1}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/nflhmgv3/dirss-pop-report-2018-post-meeting-final-for-issue-26-11.pdf'>
+          <Link  aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/nflhmgv3/dirss-pop-report-2018-post-meeting-final-for-issue-26-11.pdf'>
           <u className='black'>{documentToReactComponents(annualyear3.richText3)}</u>
-          </a>
+          </Link>
         </>
       ),
     },
@@ -91,9 +101,9 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
           <p>
             {annualyear4.text1}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/dnipqepq/dirss-report-to-members-to-june-2017.pdf'>
+          <Link  aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/dnipqepq/dirss-report-to-members-to-june-2017.pdf'>
           <u className='black'>{documentToReactComponents(annualyear4.richText3)}</u>
-          </a>
+          </Link>
         </>
       ),
     },
@@ -105,21 +115,23 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
           <p>
             {annualyear5.text1}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/vt1pr4nz/dirss-summary-report-part-year-to-30-june-2016.pdf'>
+          <Link  aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/vt1pr4nz/dirss-summary-report-part-year-to-30-june-2016.pdf'>
           <u className='black'>{documentToReactComponents(annualyear5.richText3)}</u>
-          </a>
+          </Link>
           <p>
             {annualyear5.text3}
           </p>
-          <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/r4rnj31y/dirss-summary-report-to-members-2016-final-for-issue.pdf'>
+          <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/r4rnj31y/dirss-summary-report-to-members-2016-final-for-issue.pdf'>
           <u className='black'>{documentToReactComponents(annualyear5.richText4)}</u>
-          </a>
+          </Link>
         </>
       ),
     },
   ]
   return (
-    <div className='diageo-retirement-savings-plan-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show &&<div className='diageo-retirement-savings-plan-container'>
       <div className='blue-color-container'>
         <div className='diageo-container'>
           <span
@@ -218,7 +230,10 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
       </div>
 
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

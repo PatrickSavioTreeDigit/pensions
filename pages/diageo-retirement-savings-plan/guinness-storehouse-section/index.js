@@ -1,15 +1,25 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DownloadOutlined } from '@ant-design/icons'
-
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import {createClient} from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-export default function Inedx({guinnessContent,guinnesslinks,guinnessHead}) {
+export default function Inedx({guinnessContent,guinnesslinks,guinnessHead,preFooterContent,prefooterDescriptionContent,headerContent}) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='diageo-retirement-savings-plan-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='diageo-retirement-savings-plan-container'>
       <div className='blue-color-container'>
         <div className='diageo-container'>
           <span
@@ -112,7 +122,10 @@ export default function Inedx({guinnessContent,guinnesslinks,guinnessHead}) {
       </div>
 
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

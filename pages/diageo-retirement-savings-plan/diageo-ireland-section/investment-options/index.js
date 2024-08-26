@@ -1,15 +1,27 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DownloadOutlined } from '@ant-design/icons'
 import {createClient} from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
- 
-export default function Home({investmentContent,investmentDetails,investmentHome}) {
+import Header from '@/components/layout/Header';
+
+import Footer from '@/components/layout/Footer';
+import Link from 'next/link'
+export default function Home({investmentContent,investmentDetails,investmentHome,preFooterContent,prefooterDescriptionContent,headerContent}) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   return (
-    <div className='diageo-retirement-savings-plan-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='diageo-retirement-savings-plan-container'>
       <div className='blue-color-container'>
         <div className='diageo-container'>
           <span
@@ -157,9 +169,9 @@ export default function Home({investmentContent,investmentDetails,investmentHome
                     <p>{investmentDetails.textc}</p>
                   </Col>
                   <Col span={7}>
-                  <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/xcvfqjfl/diageo_high_risk_return_strategy-feb-23.pdf'>
+                  <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/xcvfqjfl/diageo_high_risk_return_strategy-feb-23.pdf'>
                     <u>  {documentToReactComponents(investmentDetails.link1)}</u>
-                    </a>
+                    </Link>
 
                   </Col>
                 </Row>
@@ -171,9 +183,9 @@ export default function Home({investmentContent,investmentDetails,investmentHome
                     <p>{investmentDetails.textf}</p>
                   </Col>
                   <Col span={7}>
-                  <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/g2tbxbqw/diageo_medium_risk_return_growth_strategy-feb-23.pdf'>
+                  <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/g2tbxbqw/diageo_medium_risk_return_growth_strategy-feb-23.pdf'>
                     <u>{documentToReactComponents(investmentDetails.link2)}</u>
-                    </a>
+                    </Link>
                   </Col>
                 </Row> 
 
@@ -188,9 +200,9 @@ export default function Home({investmentContent,investmentDetails,investmentHome
                     <p></p>
                   </Col>
                   <Col span={7}>
-                  <a target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?TLA'>
+                  <Link  aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?TLA'>
                     <u>{documentToReactComponents(investmentDetails.link3)}</u>
-                    </a>
+                    </Link>
                   </Col>
                 </Row> 
 
@@ -210,9 +222,9 @@ export default function Home({investmentContent,investmentDetails,investmentHome
                     <p>{investmentDetails.texth}</p>
                   </Col>
                   <Col span={7}>
-                  <a target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?RIP'>
+                  <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?RIP'>
                     <u>{documentToReactComponents(investmentDetails.link4)}</u>
-                    </a>
+                    </Link>
                   </Col>
                 </Row> 
 
@@ -226,9 +238,9 @@ export default function Home({investmentContent,investmentDetails,investmentHome
                     <p></p>
                   </Col>
                   <Col span={7}>
-                  <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/40bhbvbf/diageo_low_risk_return_growth_strategy-feb-23.pdf'>
+                  <Link  aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/40bhbvbf/diageo_low_risk_return_growth_strategy-feb-23.pdf'>
                     <u>{documentToReactComponents(investmentDetails.link5)}</u>
-                    </a>
+                    </Link>
                   </Col>
                 </Row> 
 
@@ -275,31 +287,31 @@ export default function Home({investmentContent,investmentDetails,investmentHome
               <div className='yellow-links1'>
 
 
-              <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/xcvfqjfl/diageo_high_risk_return_strategy-feb-23.pdf' >
+              <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/xcvfqjfl/diageo_high_risk_return_strategy-feb-23.pdf' >
              <p style={{marginTop:'1.5rem'}}> {documentToReactComponents(investmentDetails.link6)} </p>
-              </a><br/>
+              </Link><br/>
         
           
 
-           <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/g2tbxbqw/diageo_medium_risk_return_growth_strategy-feb-23.pdf'>
+           <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/g2tbxbqw/diageo_medium_risk_return_growth_strategy-feb-23.pdf'>
               {documentToReactComponents(investmentDetails.link7)}
-              </a> <br/>
+              </Link> <br/>
               
-              <a target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?TLA'>
+              <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?TLA'>
               {documentToReactComponents(investmentDetails.link8)}
-              </a><br/>
+              </Link><br/>
 
-              <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/2hzmyszd/euro_government_bond_fund-feb-23.pdf#CBL'>
+              <Link  aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/2hzmyszd/euro_government_bond_fund-feb-23.pdf#CBL'>
               {documentToReactComponents(investmentDetails.link9)}
-              </a><br/>
+            </Link><br/>
 
-              <a target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?CBL'>
+              <Link aria-label="Read more about scheme of diageo pensions"  target='_blank' href='https://www.irishlifecorporatebusiness.ie/fund?CBL'>
               {documentToReactComponents(investmentDetails.link10)}
-              </a><br/>
+              </Link><br/>
 
-              <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/z2pj5icp/diageo_indexed_world_equity_fund_partially_hedged-feb-23.pdf'>
+              <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/z2pj5icp/diageo_indexed_world_equity_fund_partially_hedged-feb-23.pdf'>
               {documentToReactComponents(investmentDetails.link11)}
-              </a>
+              </Link>
 
               
 
@@ -316,7 +328,10 @@ export default function Home({investmentContent,investmentDetails,investmentHome
       </div>
  
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
  

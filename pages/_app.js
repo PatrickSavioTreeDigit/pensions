@@ -20,7 +20,7 @@ const [show,setShow] = useState(false);
       </Head>
 
       {/* {headerContent && <Header content={headerContent}/>} */}
-      {headerContent && <Component {...pageProps} headerContent = {headerContent} prefooterDescriptionContent={prefooterDescription} content={preFooter}/>}
+      {headerContent && <Component {...pageProps} headerContent = {headerContent} prefooterDescriptionContent={prefooterDescription} preFooterContent={preFooter}/>}
       {/* {preFooter && <Brand content={preFooter} />} */}
       {/* {prefooterDescription && <Footer content={prefooterDescription}  />} */}
      

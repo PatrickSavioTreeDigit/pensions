@@ -1,18 +1,28 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DownloadOutlined } from '@ant-design/icons'
 import {createClient} from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Link from 'next/link'
 
-
-export default function Dpp({diaContent,dppLinks}) {
+export default function Dpp({diaContent,dppLinks,preFooterContent,prefooterDescriptionContent,headerContent}) {
   const router = useRouter()
-
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   
   return (
-    <div className='other-saving-options-container'>
+    <>
+    {show && <Header content={headerContent} />}
+    {show && <div className='other-saving-options-container'>
       <div className='yellow-color-container'>
         <div className='diageo-container'>
           <span
@@ -160,10 +170,10 @@ export default function Dpp({diaContent,dppLinks}) {
                     <span>
                       <u className='cp'>
 
-                      <a target='_blank' href='https://www.gov.uk/individual-savings-accounts/how-isas-work'>
+                      <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://www.gov.uk/individual-savings-accounts/how-isas-work'>
                        {documentToReactComponents(dppLinks.richText1)}
                        {/* www.gov.uk/individual-savings-accounts/how-isas-work*/}
-                       </a>
+                       </Link>
                       </u>
                     </span> 
                   </p>
@@ -176,9 +186,9 @@ export default function Dpp({diaContent,dppLinks}) {
                   <div className='download-document'>
                     <DownloadOutlined className='download-document-icon' />
                     <span className='download-document-span'>
-                    <a target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/fcyd2yqa/diageo-savings-plan-eguide_0.pdf'>
+                    <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='https://media.diageo.com/diageo-corporate-media/media/fcyd2yqa/diageo-savings-plan-eguide_0.pdf'>
                     {documentToReactComponents(dppLinks.pdf)}
-                    </a>
+                    </Link>
                     </span>
                   </div>
                   <h1>{dppLinks.header1}</h1>
@@ -188,10 +198,10 @@ export default function Dpp({diaContent,dppLinks}) {
 
                   <h1>{dppLinks.header2}</h1>
                  
-                  <a target='_blank' href='http://www.corporate-vantage.co.uk/dsp'>
+                  <Link aria-label="Read more about scheme of diageo pensions" target='_blank' href='http://www.corporate-vantage.co.uk/dsp'>
                  
                  {documentToReactComponents(dppLinks.descrption2)} {documentToReactComponents(dppLinks.rich)} 
-                 </a>
+                 </Link>
 
                   {/*
                     For further information on the Diageo Individual Savings
@@ -207,7 +217,10 @@ export default function Dpp({diaContent,dppLinks}) {
         </div>
       </div>
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 

@@ -1,13 +1,21 @@
 import Brand from '@/components/Brands/Brand'
 import { Col, Row, Collapse } from 'antd'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
-
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import { createClient } from "contentful"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-export default function Index({ annualContent, annuallinks, annualyear, annualyear1, annualyear2, annualyear3, annualyear4, annualyear5, annualyear6 }) {
+export default function Index({ annualContent, annuallinks, annualyear, annualyear1, annualyear2, annualyear3, annualyear4, annualyear5, annualyear6,preFooterContent,prefooterDescriptionContent,headerContent }) {
   const router = useRouter()
+  const [show,setshow] = useState(false)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setshow(true)
+    },0)
+    
+  },[])
   const customExpandIcon = ({ isActive }) => (
     <span>{isActive ? <MinusOutlined /> : <PlusOutlined />}</span>
   )
@@ -123,6 +131,9 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
     },
   ]
   return (
+    <>
+    {show && <Header content={headerContent} />}
+    {show && 
     <div className='diageo-retirement-savings-plan-container'>
       <div className='blue-color-container'>
         <div className='diageo-container'>
@@ -222,7 +233,10 @@ export default function Index({ annualContent, annuallinks, annualyear, annualye
       </div>
 
       <Brand />
-    </div>
+    </div>}
+    {show && <Brand content={preFooterContent} />}
+    {show && <Footer content={prefooterDescriptionContent}  />}
+    </>
   )
 }
 
