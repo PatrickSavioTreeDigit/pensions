@@ -9,7 +9,7 @@ import {createClient} from "contentful"
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-export default function dpp({dppContent , dppLinks, dpphome,preFooterContent,prefooterDescriptionContent,headerContent}) {
+export default function Dpp({dppContent , dppLinks, dpphome,preFooterContent,prefooterDescriptionContent,headerContent}) {
   const router = useRouter()
   const [show,setshow] = useState(false)
   useEffect(()=>{

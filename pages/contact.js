@@ -5,7 +5,7 @@ import Brand from "../components/Brands/Brand.js"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-export default function contact1({contactContent,preFooterContent,prefooterDescriptionContent,headerContent}) {
+export default function Contact1({contactContent,preFooterContent,prefooterDescriptionContent,headerContent}) {
 // const contact1 = ({ contactContent }) => {
     const [show,setshow] = useState(false)
     useEffect(()=>{
